@@ -20,3 +20,24 @@ let contenedor = document.querySelector('.contenedor')
 
 let arrayGatosActuales = [] # con la finalidad de reastrear gatos consecutivos
 ```
+
+## Funcion para agregar el gato
+Tengo que mostrar en pantalla las cara de los emojis del gato cuando el usuario haga click sobre los botones. Para darle dicha funcion, lo realizé de la siguiente manera:
+```sh
+#creando funcion para agregar un gato
+let agregaGato = (emoji) => {
+    #creando un elemento para el emojin
+    let gato = document.createElement('p')
+    gato.textContent = emoji
+
+    #agregando el gato al contenedor y al array
+    contenedor.appendChild(gato)
+    arrayGatosActuales.push(emoji)
+
+}
+
+# Utilizo eventos para los botones, se van a encargar de ejecutar ya el código hecho de let agregaGato
+botonGato1.addEventListener('click', ()=> agregaGato('😺'))
+botonGato2.addEventListener('click', ()=> agregaGato('😸'))
+botonGato3.addEventListener('click', ()=> agregaGato('😹'))
+```
