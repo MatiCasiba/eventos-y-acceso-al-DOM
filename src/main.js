@@ -13,12 +13,17 @@ let agregaGato = (emoji) => {
     contenedor.appendChild(gato)
     arrayGatosActuales.push(emoji)
 
+    if (arrayGatosActuales.length >= 5){
+        let ultimosCinco = arrayGatosActuales.slice(-5)
+        if (ultimosCinco.every(g=>g === emoji)){
+            let caja = document.createElement('div')
+            caja.textContent = '📦'
+            
+        }
+    }
 }
 
 botonGato1.addEventListener('click', ()=> agregaGato('😺'))
 botonGato2.addEventListener('click', ()=> agregaGato('😸'))
 botonGato3.addEventListener('click', ()=> agregaGato('😹'))
-
-
-
 

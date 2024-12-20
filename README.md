@@ -41,3 +41,30 @@ botonGato1.addEventListener('click', ()=> agregaGato('😺'))
 botonGato2.addEventListener('click', ()=> agregaGato('😸'))
 botonGato3.addEventListener('click', ()=> agregaGato('😹'))
 ```
+
+## Estilo del contenedor
+Para la clase contenedor, eh utilizado flex, con la finalidad de que al momento de mostrar los gatos en pantalla, vayan en una misma linea horizontal:
+```sh
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+```
+
+## Verificación si hay más de 5 consecutivamente iguales
+Tengo que realizar una verificación que detecte cuando hay más de 5 emojis consecutivamentes iguales, luego guardarlos en una caja. Dentro de la funcion agregarGato, estaré realizando esa verificación:
+```sh
+#verificando si hay más de 5 gatos iguales consecutivamente
+    if (arrayGatosActuales.length >= 5){
+        let ultimosCinco = arrayGatosActuales.slice(-5)
+        if (ultimosCinco.every(g=>g === emoji)){
+            #hago una caja para guardar los gatos
+            let caja = document.createElement('div') #creo un elemento div dinamico  que tendrá el emoji de una caja
+            caja.textContent = '📦'
+            
+        }
+    }
+```
+* let ultimosCinco: con slice(-5) agarro los utltimos 5 elementos del array, comienza a contar desde el final del array hacia atrás.
+* if (ultimosCinco.every(g=>g === emoji)): voy a recorrer los elemenetos guardados en el array (g representa cada uno de esos elementos tomados dentro del array, minetras que every los recorre), entonces pregunto si esos ultimos 5 elementos (g) dentro del array son iguales al emoji, si lo son dará true, si ve uno diferente, será false.
