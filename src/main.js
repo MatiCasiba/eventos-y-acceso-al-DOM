@@ -15,18 +15,14 @@ let agregaGato = (emoji) => {
 
     if (arrayGatosActuales.length >= 5){
         let ultimosCinco = arrayGatosActuales.slice(-5)
-        if (ultimosCinco.every(g=>g === emoji)){
+        if (ultimosCinco.every((g)=>g === emoji)){
             let caja = document.createElement('div')
             caja.textContent = '📦'
             contenedor.prepend(caja)
             
-            for (let i=0; i<5; i++) {
-                let moviendoGato = contenedor.querySelector('span:last-child')
-                if (moviendoGato){
-                    moviendoGato.remove()
-                }
-            }
-            arrayGatosActuales = arrayGatosActuales.slice(0,-5)
+            let todosGatos = contenedor.querySelectorAll('span')
+            todosGatos.forEach((gato)=>gato.remove())
+            arrayGatosActuales=[] //vacio el array 
         }
     }
 }
@@ -34,4 +30,3 @@ let agregaGato = (emoji) => {
 botonGato1.addEventListener('click', ()=> agregaGato('😺'))
 botonGato2.addEventListener('click', ()=> agregaGato('😸'))
 botonGato3.addEventListener('click', ()=> agregaGato('😹'))
-

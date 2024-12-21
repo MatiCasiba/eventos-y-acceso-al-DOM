@@ -71,17 +71,12 @@ Tengo que realizar una verificación que detecte cuando hay más de 5 emojis con
 * método prepend: esto agrega un elemento como el primer hijo del contenedor.
 
 ## Moviendo gatos a caja
-Lo que voy a hacer en esta parte de código es eliminar los ultimos 5 emojis (span) que están en el contenedor y también va a actualizar el arrayGatosActuales:
+Lo que quiero lograr en esta parte del código es eliminar todos los emojis en pantalla cuando se detecten que hay 5 emojis consecutivamente iguales:
 ```sh
-for (let i=0; i<5; i++) {
-    let moviendoGato = contenedor.querySelector('span:last-child')
-    if (moviendoGato){ #verifico si existe antes de eliminar el elemenot
-        moviendoGato.remove() 
-        #si existe, lo elimina
-    }
-}
-arrayGatosActuales = arrayGatosActuales.slice(0, -5)
-# crea un nuevo array que contiene todos los elementos de arrayGatosActuales, excepto los ultimos 5, esto muestra que 5 emojis se eliminaron del contenedor
+let todosGatos = contenedor.querySelectorAll('span')
+todosGatos.forEach((gato)=>gato.remove())
+arrayGatosActuales=[]
 ```
-* for (let i=0; i<5; i++): itera 5 veces, ya que quiero eliminar 5 elementos del contenedor.
-* let moviendoGato = contenedor.querySelector('span:last-child'): en el contenedor están los emojis en pantalla, 'span:last-child' va a seleccionar el último elemento span.
+* todosGatos: uso el QSA (querySelectorAll) para seleccionar todos los elementos span que están dentro el contenedor
+* todosGatos.forEach((gato)=>gato.remove()): uso el forEach() para recorrer todo los emojis en todoGatos, entonces para cada elemento span, llama al metodo remove() para eliminarlos. Entrando en detalle para que se entienda, (gato) es mi parámetro de la funcion, represeta un elemento de la lista en la cual se itera,gato es un elemento span del contenedor que tiene los emojis. Entonces para cada elemento (gato) se ejecuta gato.remove(), osea que lo elimino. 
+* arrayGatosActuales=[]: vacio el array que llevaba los emojis en pantalla
