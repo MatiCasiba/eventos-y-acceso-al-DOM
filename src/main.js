@@ -22,7 +22,7 @@ let agregaGato = (emoji) => {
             
             let todosGatos = contenedor.querySelectorAll('span')
             todosGatos.forEach((gato)=>gato.remove())
-            arrayGatosActuales=[] //vacio el array 
+            arrayGatosActuales=[]
         }
     }
 }
