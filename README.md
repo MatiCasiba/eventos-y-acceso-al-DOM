@@ -27,7 +27,7 @@ Tengo que mostrar en pantalla las cara de los emojis del gato cuando el usuario 
 #creando funcion para agregar un gato
 let agregaGato = (emoji) => {
     #creando un elemento para el emojin
-    let gato = document.createElement('p')
+    let gato = document.createElement('span')
     gato.textContent = emoji
 
     #agregando el gato al contenedor y al array
