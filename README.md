@@ -58,7 +58,7 @@ Tengo que realizar una verificación que detecte cuando hay más de 5 emojis con
 #verificando si hay más de 5 gatos iguales consecutivamente
     if (arrayGatosActuales.length >= 5){
         let ultimosCinco = arrayGatosActuales.slice(-5)
-        if (ultimosCinco.every(g=>g === emoji)){
+        if (ultimosCinco.every((g)=>g === emoji)){
             #hago una caja para guardar los gatos
             let caja = document.createElement('div') #creo un elemento div dinamico  que tendrá el emoji de una caja
             caja.textContent = '📦'
